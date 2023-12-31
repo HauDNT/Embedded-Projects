@@ -3,7 +3,7 @@
 
 // Khai báo thông tin mạng cục bộ:
 const char* ssid = "ESP32 Wifi";
-const char* password = "12345";
+const char* password = "123456789";
 
 // Khai báo các cổng mạng:
 IPAddress local_ip(192,168,49,15);
@@ -12,24 +12,24 @@ IPAddress subnet(255,255,255,0);
 
 WebServer server(80);
 uint8_t LedPin = 2;
-bool LedStatus = LOW;
+bool ledStatus = LOW;
 
 void event_OnConnect() {
   ledStatus = LOW;
   Serial.print("Chan so 2 ESP32 dang tat");
-  server.send(200, "text/html", HTMLGui(LedStatus));
+  server.send(200, "text/html", HTMLGui(ledStatus));
 }
 
 void event_LedOn() {
   ledStatus = HIGH;
   Serial.print("Chan so 2 ESP32 dang bat");
-  server.send(200, "text/html", HTMLGui(LedStatus));
+  server.send(200, "text/html", HTMLGui(ledStatus));
 }
 
 void event_LedOff() {
   ledStatus = LOW;
   Serial.print("Chan so 2 ESP32 dang tat");
-  server.send(200, "text/html", HTMLGui(LedStatus));
+  server.send(200, "text/html", HTMLGui(ledStatus));
 }
 
 void event_NotFound() {
@@ -64,11 +64,11 @@ void loop() {
   // Thao tác với client:
   server.handleClient();
 
-  if (LedStatus) {
+  if (ledStatus) {
       digitalWrite(LedPin, 1);
   } else {
       digitalWrite(LedPin, 0);
-  }
+  }}
 
   String HTMLGui(uint8_t led) {
     String str = "<!DOCTYPE html>\n";
@@ -106,7 +106,6 @@ void loop() {
       str += "</html>";
 
       return str;
-  }
 }
 
 
