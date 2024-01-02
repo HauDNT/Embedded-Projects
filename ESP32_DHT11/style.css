@@ -1,0 +1,9 @@
+* {
+    padding: 0;
+    margin: 0;
+    box-sizing: border-box;
+}
+
+.container {margin: 10px 0 0 10px;}
+
+.wrap-content {width: 50vw; height: 300px; padding: 10px; background-color: #a0a0a0; border: 1px solid black; border-radius: 15px; overflow-x: scroll; }

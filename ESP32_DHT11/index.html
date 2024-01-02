@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>ESP32 & DHT11</title>
+    <link rel="stylesheet" href="./style.css">
+</head>
+
+<body>
+    <div class="container">
+        <h1>Check DHT11 & ESP32</h1>
+        <div class="wrap-content" id="output">
+            <script>
+                function sleep(ms) {
+                    return new Promise(resolve => setTimeout(resolve, ms));
+                }
+
+                async function printMessages() {
+                    for (let i = 0; i < 100; i++) {
+                      const outputDiv = document.getElementById('output');
+                        outputDiv.innerHTML += "Thông số của DHT11 - Nhiệt độ<br>";
+                        outputDiv.innerHTML += "Thông số của DHT11 - Độ ẩm<br>";
+                      await sleep(2000);
+                    }
+                  }
+
+                printMessages();
+            </script>
+        </div>
+    </div>
+</body>
+
+</html>
